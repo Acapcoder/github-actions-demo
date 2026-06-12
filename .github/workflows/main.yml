@@ -1,0 +1,39 @@
+name: GitHub Actions CI/CD Pipeline
+
+# Event: triggers the workflow on push to main branch
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+# Jobs: define the work to be done
+jobs:
+  build:
+    name: Build and Test Job
+    runs-on: ubuntu-latest      # Runner environment
+
+    # Steps: individual tasks within the job
+    steps:
+
+      # Step 1: Checkout the repository code
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      # Step 2: Show current directory
+      - name: Show Current Directory
+        run: pwd
+
+      # Step 3: List files in the repository
+      - name: List Files
+        run: ls -la
+
+      # Step 4: Make a new directory
+      - name: Make Directory
+        run: mkdir my_new_folder
+
+      # Step 5: Echo message
+      - name: Echo Message
+        run: echo "I am learning Github Actions"
